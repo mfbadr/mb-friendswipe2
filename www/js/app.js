@@ -1,4 +1,4 @@
-angular.module('mb-friendswipe', ['ionic', 'mb-friendswipe.services'])
+angular.module('mb-friendswipe', ['ionic', 'mb-friendswipe.services', 'openfb'])
 .run(function($ionicPlatform, $state){
   'use strict';
   $ionicPlatform.ready(function(){

@@ -14,13 +14,18 @@ html
     // cordova script (this will be a 404 during development)
     script(src='cordova.js')
     // your app's js
+    script(src='lib/openfb-angular.js')
     script(src='js/app.js')
+
+
     script(src='js/controllers/account/AccountCtrl.js')
     script(src='js/controllers/account/LoginCtrl.js')
     script(src='js/controllers/dash/DashCtrl.js')
     script(src='js/controllers/match/MatchCtrl.js')
     script(src='js/controllers/match/MatchDetailCtrl.js')
+
     script(src='js/services.js')
+
   body(ng-app='mb-friendswipe', animation='slide-left-right-ios7')
     //
       The nav bar that will be updated as we navigate between views.
