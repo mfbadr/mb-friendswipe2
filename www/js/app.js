@@ -1,5 +1,5 @@
 angular.module('mb-friendswipe', ['ionic', 'mb-friendswipe.services'])
-.run(function($ionicPlatform){
+.run(function($ionicPlatform, $state){
   'use strict';
   $ionicPlatform.ready(function(){
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -11,11 +11,18 @@ angular.module('mb-friendswipe', ['ionic', 'mb-friendswipe.services'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    $state.go('login');
   });
+
 })
 .config(function($stateProvider, $urlRouterProvider){
   'use strict';
   $stateProvider
+    .state('login', {
+      url: '/login',
+      templateUrl: 'templates/login.html',
+      controller: 'LoginCtrl'
+    })
     .state('tab', {
       url: '/tab',
       abstract: true,

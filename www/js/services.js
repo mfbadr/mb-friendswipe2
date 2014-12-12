@@ -15,7 +15,7 @@ angular.module('mb-friendswipe.services', [])
 
   function all(){
     return friends;
-  };
+  }
 
   return{
     all: all,
