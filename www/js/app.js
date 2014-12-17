@@ -1,6 +1,8 @@
 angular.module('mb-friendswipe', ['ionic', 'mb-friendswipe.services', 'openfb'])
-.run(function($ionicPlatform, $state){
+.run(function($ionicPlatform, $state, OpenFB, $rootScope){
   'use strict';
+  OpenFB.init('419569464862295');
+
   $ionicPlatform.ready(function(){
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -11,6 +13,10 @@ angular.module('mb-friendswipe', ['ionic', 'mb-friendswipe.services', 'openfb'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    $state.go('login');
+  });
+  $rootScope.$on('OAuthException', function(){
+    //change to login
     $state.go('login');
   });
 
