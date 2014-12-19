@@ -6,7 +6,7 @@
     $scope.facebookLogin = function(){
       OpenFB.login('public_profile,email,user_photos,read_stream,user_friends').then(
         function(){
-          debugger;
+          $state.go('tab.dash');
         },
         function(){
           alert('OpenFB login failed');
