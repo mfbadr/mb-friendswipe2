@@ -1,8 +1,24 @@
 html
   body
     ion-view(title='Dashboard')
-      ion-content.padding
-        h1 Dash
-        h2 My id is {{myFacebookId}}
-        h3 my friends are 
-        pre {{friends}}
+      //ion-content.padding
+      ion-pane(ng-controller='CardsCtrl')
+        .container
+          td-cards
+            td-card(ng-repeat='card in cards', on-destroy='cardDestroyed($index)', on-card-swipe='cardSwiped($index)', ng-controller='CardCtrl')
+              div
+                .card
+                  h2 this is a card
+                  i.ion-person(style='font-size: 240px')
+                  h4 {{card.title}}
+                  .image
+                    img(ng-src='{{card.image}}')
+                  .card-footer
+                  h3 card footer
+                  .yes-text(ng-style='leftTextOpacity') Like
+                  .no-text(ng-style='rightTextOpacity') Nope
+  
+
+
+                  //-button.button.button-clear.button-positive(ng-click='goAway()') Answer
+                  //-button.button.button-clear.button-positive(ng-click='goAway()') Decline

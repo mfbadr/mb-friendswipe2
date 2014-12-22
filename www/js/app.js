@@ -1,4 +1,4 @@
-angular.module('mb-friendswipe', ['ionic', 'mb-friendswipe.services', 'openfb'])
+angular.module('mb-friendswipe', ['ionic', 'mb-friendswipe.services', 'openfb', 'ionic.contrib.ui.tinderCards'])
 .run(function($ionicPlatform, $state, OpenFB, $rootScope){
   'use strict';
   OpenFB.init('419569464862295');
@@ -13,11 +13,13 @@ angular.module('mb-friendswipe', ['ionic', 'mb-friendswipe.services', 'openfb'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-    $state.go('login');
+    //$state.go('login');
+    $state.go('tab.dash');
   });
   $rootScope.$on('OAuthException', function(){
     //change to login
-    $state.go('login');
+    //$state.go('login');
+    $state.go('tab.dash');
   });
 
 })
