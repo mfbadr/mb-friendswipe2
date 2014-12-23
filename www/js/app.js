@@ -23,6 +23,17 @@ angular.module('mb-friendswipe', ['ionic', 'mb-friendswipe.services', 'openfb', 
   });
 
 })
+.directive('noScroll', function($document){
+  'use strict';
+  return{
+    restrict: 'A',
+    link: function($scope, $element, $attr){
+      $document.on('touchmove', function(e){
+        e.preventDefault();
+      });
+    }
+  };
+})
 .config(function($stateProvider, $urlRouterProvider){
   'use strict';
   $stateProvider

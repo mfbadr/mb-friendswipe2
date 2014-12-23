@@ -30,5 +30,6 @@
       newCard.id = Math.random();
       $scope.cards.push(angular.extend({}, newCard));
     };
+
   }]);
 })();
