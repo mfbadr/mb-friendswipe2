@@ -7,13 +7,14 @@
       card.swipe();
     };
 
-    $scope.cardSwipedLeft = function(index){
-      console.log('LEFT SWIPE');
-      $scope.addCard();
+    $scope.cardSwipedLeft = function(name){
+      console.log('LEFT SWIPE on ', name);
+      //$scope.addCard();
     };
-    $scope.cardSwipedRight = function(index){
-      console.log('RIGHT SWIPE');
-      $scope.addCard();
+
+    $scope.cardSwipedRight = function(name){
+      console.log('RIGHT SWIPE on ', name);
+      //$scope.addCard();
     };
 
     console.log('card ctrl');

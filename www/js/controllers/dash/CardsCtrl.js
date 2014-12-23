@@ -33,27 +33,31 @@
     OpenFB.api({path:'/me/friends'}).then(function(data){
       console.log('/me/friends', data);
       $scope.friends = data.data;
-      cardTypes = data.data.data;
+      $scope.cards = data.data.data;
+      console.log('Cards', $scope.cards);
       console.log('cardTypes is ', cardTypes);
-      $scope.cards = Array.prototype.slice.call(cardTypes, 0);
+      //$scope.cards = Array.prototype.slice.call(cardTypes, 0);
       $scope.digest();
     });
 //
-    console.log('Cards', $scope.cards);
 
-    $scope.cardSwiped = function(index){
+/*
+    $scope.cardSwiped = function(name){
       $scope.addCard();
     };
+*/
 
     $scope.cardDestroyed = function(index){
       $scope.cards.splice(index, 1);
     };
 
+/*
     $scope.addCard = function(){
       var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
       newCard.id = Math.random();
       $scope.cards.push(angular.extend({}, newCard));
     };
+*/
 
   }]);
 })();
