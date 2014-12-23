@@ -13,13 +13,13 @@ angular.module('mb-friendswipe', ['ionic', 'mb-friendswipe.services', 'openfb', 
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-    //$state.go('login');
-    $state.go('tab.dash');
+    $state.go('login');
+    //$state.go('tab.dash');
   });
   $rootScope.$on('OAuthException', function(){
     //change to login
-    //$state.go('login');
-    $state.go('tab.dash');
+    $state.go('login');
+    //$state.go('tab.dash');
   });
 
 })

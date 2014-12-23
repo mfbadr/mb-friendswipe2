@@ -133,7 +133,7 @@
       }
 
       var angle = Math.atan(e.gesture.deltaX / e.gesture.deltaY);
-      console.log('Finishing at angle', angle, 'and velocity', e.gesture.velocityX, e.gesture.velocityY);
+      //console.log('Finishing at angle', angle, 'and velocity', e.gesture.velocityX, e.gesture.velocityY);
 
 
       var dir = this.thresholdAmount < 0 ? -1 : 1;
@@ -151,7 +151,7 @@
       var rotateTo = this.rotationAngle;//(this.rotationAngle this.rotationDirection * 0.2));// || (Math.random() * 0.4);
 
       var duration = 0.3 - Math.min(Math.max(Math.abs(e.gesture.velocityX)/10, 0.05), 0.2);
-      console.log('Duration', duration);
+      //console.log('Duration', duration);
       
       ionic.requestAnimationFrame(function() {
         self.el.style.transform = self.el.style.webkitTransform = 'translate3d(' + targetX + 'px, ' + targetY + 'px,0) rotate(' + self.rotationAngle + 'rad)';
@@ -159,7 +159,7 @@
       });
 
       //this.onSwipe && this.onSwipe();
-      console.log('DO DRAG END');
+      //console.log('DO DRAG END');
 
       // Trigger destroy after card has swiped out
       setTimeout(function() {
@@ -181,7 +181,7 @@
           self._transformOriginLeft();
         }
         */
-        console.log('DRAG START');
+        //console.log('DRAG START');
         ionic.requestAnimationFrame(function() { self._doDragStart(e) });
       }, this.el);
 
@@ -221,7 +221,7 @@
       var width = this.el.offsetWidth;
       var point = window.innerWidth / 2 + this.rotationDirection * (width / 2)
       var distance = Math.abs(point - e.gesture.touches[0].pageX);// - window.innerWidth/2);
-      console.log(distance);
+      //console.log(distance);
       //
 
       var o = e.gesture.deltaX / -1000;
@@ -298,7 +298,7 @@
               });
             },
             onSnapBack: function(startX, startY, startRotation) {
-              console.log('SNAP BACK');
+              //console.log('SNAP BACK');
               var leftText = el.querySelector('.yes-text');
               var rightText = el.querySelector('.no-text');
 
@@ -375,7 +375,7 @@
           position = card.style.transform || card.style.webkitTransform;
           top = parseInt(position && position.split(',')[1] || 0);
           newTop = Math.max(0, Math.min(max, max - (max * Math.abs(amt))));
-          console.log('newTOP', newTop);
+          //console.log('newTOP', newTop);
           card.style.transform = card.style.webkitTransform = 'translate3d(0, ' + newTop + 'px, 0)';
         };
 

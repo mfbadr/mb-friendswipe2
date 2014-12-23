@@ -3,12 +3,11 @@
   <!--ion-content.padding-->
   <ion-pane ng-controller="CardsCtrl">
     <td-cards>
-      <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-card-swipe="cardSwiped($index)" ng-controller="CardCtrl">
+      <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-card-swipe="cardSwiped($index)" ng-controller="CardCtrl" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)">
         <div>
           <div class="card">
-            <h2>this is a card</h2><i style="font-size: 240px" class="ion-person"></i>
-            <h4>{{card.title}}</h4>
-            <div class="image"><img ng-src="{{card.image}}"></div>
+            <h2>this is {{card.name}}</h2><i style="font-size: 240px" class="ion-person"></i>
+            <!--h4 {{card.title}}-->
             <div class="card-footer"></div>
             <h3>card footer</h3>
             <div ng-style="leftTextOpacity" class="yes-text">Like</div>

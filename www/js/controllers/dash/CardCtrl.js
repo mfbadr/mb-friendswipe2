@@ -7,11 +7,11 @@
       card.swipe();
     };
 
-    $scope.onSwipeLeft = function(index){
+    $scope.cardSwipedLeft = function(index){
       console.log('LEFT SWIPE');
       $scope.addCard();
     };
-    $scope.onSwipeRight = function(index){
+    $scope.cardSwipedRight = function(index){
       console.log('RIGHT SWIPE');
       $scope.addCard();
     };

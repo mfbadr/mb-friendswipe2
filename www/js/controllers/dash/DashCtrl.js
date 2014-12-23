@@ -3,6 +3,8 @@
   angular.module('mb-friendswipe')
   .controller('DashCtrl', ['$scope', 'OpenFB', '$rootScope', function($scope, OpenFB, $rootScope){
     //get info on current user
+
+/*
     OpenFB.api({path:'/me'}).then(function(data){
       console.log('ALL THE DATA!  - ', data);
       console.log('MY ID IS', data.data.id);
@@ -21,6 +23,7 @@
       $scope.friends = data.data;
     });
 
+*/
     //get picture for each friend
     //loop through friends retrieving picture
     //
