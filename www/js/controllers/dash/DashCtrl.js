@@ -1,34 +1,23 @@
 (function(){
   'use strict';
   angular.module('mb-friendswipe')
-  .controller('DashCtrl', ['$scope', 'OpenFB', '$rootScope', function($scope, OpenFB, $rootScope){
+  .controller('DashCtrl', ['$scope', 'OpenFB', '$rootScope', 'Dash', function($scope, OpenFB, $rootScope, Dash){
     //get info on current user
 
-/*
     OpenFB.api({path:'/me'}).then(function(data){
       console.log('ALL THE DATA!  - ', data);
       console.log('MY ID IS', data.data.id);
       $rootScope.myFacebookId = data.data.id;
+
+      Dash.register(data.data).then(function(response){
+        console.log('User successfully registered');
+      }, function(response){
+        console.log('Something went registering the user', response);
+      });
+
     }, function(data){
-      console.log(data);
+      console.log('Something went wrong getting info from facebook: ', data);
     });
-    //
-    OpenFB.api({path:'/me/picture?redirect=0&type=large'}).then(function(data){
-      console.log('/me/picture', data);
-    });
-
-    //get current users friends
-    OpenFB.api({path:'/me/friends'}).then(function(data){
-      console.log('/me/friends', data);
-      $scope.friends = data.data;
-    });
-
-*/
-    //get picture for each friend
-    //loop through friends retrieving picture
-    //
-    //get
-    //id/picture?redirect=0&type=large
 
   }]);
 })();
