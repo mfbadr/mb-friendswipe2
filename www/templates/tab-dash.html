@@ -7,10 +7,11 @@
       <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-card-swipe="cardSwiped($index)" ng-controller="CardCtrl" on-swipe-left="cardSwipedLeft(card.name)" on-swipe-right="cardSwipedRight(card.name)">
         <div>
           <div class="card">
-            <h2>{{card.name}}</h2><i style="font-size: 240px" class="ion-person"></i>
+            <h2>{{card.name}}</h2>
+            <!--i.ion-person(style='font-size: 240px')-->
             <!--h4 {{card.title}}-->
+            <div class="image"><img ng-src="{{card.url}}"></div>
             <div class="card-footer"></div>
-            <h3>card footer</h3>
             <div ng-style="leftTextOpacity" class="yes-text">Like</div>
             <div ng-style="rightTextOpacity" class="no-text">Nope
             </div>

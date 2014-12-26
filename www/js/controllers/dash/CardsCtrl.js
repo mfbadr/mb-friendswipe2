@@ -5,26 +5,16 @@
     //$scope.friend = Friends.get($state.params.friendId);
     //get as many details on friendship as possible, link to message from app
     console.log('CARDS CTRL');
-    var cardTypes;
-/*
-    var cardTypes = [
-      {title: 'Swipe down to clear the card', image: 'img/pic.png'},
-      {title: 'Where is this?', image: 'img/pic.png'},
-      {title: 'What kind of grass is this?', image: 'img/pic2.png'},
-      {title: 'What beach is this?', image: 'img/pic3.png'},
-      {title: 'What kind of clouds are these?', image: 'img/pic4.png'}
-    ];
-*/
 //
 
     OpenFB.api({path:'/me'}).then(function(data){
-      console.log('ALL THE DATA!  - ', data);
-      console.log('MY ID IS', data.data.id);
+      //console.log('ALL THE DATA!  - ', data);
+      //console.log('MY ID IS', data.data.id);
       $rootScope.myFacebookId = data.data.id;
     }, function(data){
-      console.log(data);
+      //console.log(data);
     });
-    //
+
     OpenFB.api({path:'/me/picture?redirect=0&type=large'}).then(function(data){
       console.log('/me/picture', data);
     });
@@ -32,32 +22,31 @@
     //get current users friends
     OpenFB.api({path:'/me/friends'}).then(function(data){
       console.log('/me/friends', data);
-      $scope.friends = data.data;
-      $scope.cards = data.data.data;
-      console.log('Cards', $scope.cards);
-      console.log('cardTypes is ', cardTypes);
-      //$scope.cards = Array.prototype.slice.call(cardTypes, 0);
-      $scope.digest();
+      //$scope.friends = data.data;
+      console.log('RAW FRIENDS ARRAY', data.data.data);
+      var rawFriends = data.data.data;
+      $scope.cards = friendPictures(rawFriends);
+      console.log('PROCESSED FRIENDS ARRAY', $scope.cards);
+      //$scope.digest();
     });
 //
-
-/*
-    $scope.cardSwiped = function(name){
-      $scope.addCard();
-    };
-*/
-
     $scope.cardDestroyed = function(index){
       $scope.cards.splice(index, 1);
     };
 
-/*
-    $scope.addCard = function(){
-      var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
-      newCard.id = Math.random();
-      $scope.cards.push(angular.extend({}, newCard));
-    };
-*/
+    function friendPictures(friendsArray){
+      friendsArray = friendsArray.map(function(friend){
+        var url;
+        OpenFB.api({path:'/' + friend.id + '/picture?redirect=0&type=large'}).then(function(data){
+          //console.log('raw data from friendPictures', data);
+          url = data.data.data.url;
+          console.log('url for', friend.name, 'is',  url);
+          friend.url = url;
+        });
+        return friend;
+      });
+      return friendsArray;
+    }
 
   }]);
 })();

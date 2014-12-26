@@ -9,12 +9,11 @@ ion-view(title='Dashboard')
         div
           .card
             h2 {{card.name}}
-            i.ion-person(style='font-size: 240px')
+            //i.ion-person(style='font-size: 240px')
             //h4 {{card.title}}
-            //-.image
-              //-img(ng-src='{{card.image}}')
+            .image
+              img(ng-src='{{card.url}}')
             .card-footer
-            h3 card footer
             .yes-text(ng-style='leftTextOpacity') Like
             .no-text(ng-style='rightTextOpacity') Nope
 
