@@ -9,6 +9,8 @@ angular.module('mb-friendswipe')
     return $http.post(origin + '/register', userObj);
   }
 
+  //call to see swiped users here
+
   return {register: register};
 
 }]);
