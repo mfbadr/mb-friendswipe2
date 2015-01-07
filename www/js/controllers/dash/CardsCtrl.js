@@ -29,9 +29,10 @@
       console.log('PROCESSED FRIENDS ARRAY', $scope.cards);
       //$scope.digest();
     });
-//
+
     $scope.cardDestroyed = function(index){
       $scope.cards.splice(index, 1);
+      console.log('cards.length is :', $scope.cards.length);
     };
 
     function friendPictures(friendsArray){

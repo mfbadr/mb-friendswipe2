@@ -4,8 +4,9 @@ angular.module('mb-friendswipe')
   // register user
   //send swipe
   function register(user){
-    console.log('user data from dash factory', user);
-    return $http.post(origin + '/register', user);
+    var userObj = {name: user.name, id: user.id};
+    console.log('user data from dash factory', userObj);
+    return $http.post(origin + '/register', userObj);
   }
 
   return {register: register};

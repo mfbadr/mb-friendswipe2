@@ -2,8 +2,10 @@
 <ion-view title="Dashboard">
   <!--ion-content.padding-->
   <ion-pane ng-controller="CardsCtrl">
-    <h5 ng-show="cards.length == 0">Looks like you swiped on all your friends! Invite some more to join the fun!</h5>
     <td-cards>
+      <div ng-show="cards.length == 0"><br><br><br>
+        <h5>Looks like you swiped on all your friends! Invite some more to join the fun!</h5>
+      </div>
       <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-card-swipe="cardSwiped($index)" ng-controller="CardCtrl" on-swipe-left="cardSwipedLeft(card.name)" on-swipe-right="cardSwipedRight(card.name)">
         <div>
           <div class="card">

@@ -14,7 +14,6 @@
       }, function(response){
         console.log('Something went registering the user', response);
       });
-
     }, function(data){
       console.log('Something went wrong getting info from facebook: ', data);
     });
