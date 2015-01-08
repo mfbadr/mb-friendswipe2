@@ -3,17 +3,20 @@
   angular.module('mb-friendswipe')
   .controller('MatchCtrl', ['$scope', 'Match', '$rootScope', function($scope, Match, $rootScope){
 
-    //Match.matches($rootScope.myFacebookId).then(function(response){
-      //console.log('response from matches', response);
-    //}, function(reseponse){});
+    Match.matches($rootScope.myFacebookId).then(function(response){
+      console.log('response from matches', response);
+      $scope.matches = response.data;
+    }, function(response){});
 
     //FOR TESTING
+    /*
     Match.matches('1').then(function(response){
       console.log('response from matches', response);
+      $scope.matches = response.data;
       //why is this returning double
-    }, function(reseponse){});
+    }, function(response){});
+    */
 
-    //make a call to the database to find all friends who match
     //
   }]);
 })();
