@@ -9,7 +9,7 @@ ion-view(title='Dashboard')
         br
         br
         h5 Looks like you swiped on all your friends! Invite some more to join the fun!
-      td-card(ng-repeat='card in cards', on-destroy='cardDestroyed($index)', on-card-swipe='cardSwiped($index)', ng-controller='CardCtrl', on-swipe-left='cardSwipedLeft(card.name)', on-swipe-right='cardSwipedRight(card.name)')
+      td-card(ng-repeat='card in cards', on-destroy='cardDestroyed($index)', on-card-swipe='cardSwiped($index)', ng-controller='CardCtrl', on-swipe-left='cardSwipedLeft(card.id)', on-swipe-right='cardSwipedRight(card.id)')
         div
           .card
             h2 {{card.name}}

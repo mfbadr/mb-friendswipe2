@@ -2,10 +2,8 @@
   'use strict';
   angular.module('mb-friendswipe')
   .controller('CardsCtrl', ['$scope', 'TDCardDelegate', 'OpenFB', '$rootScope', function($scope, TDCardDelegate, OpenFB, $rootScope){
-    //$scope.friend = Friends.get($state.params.friendId);
     //get as many details on friendship as possible, link to message from app
-    console.log('CARDS CTRL');
-//
+    //console.log('CARDS CTRL');
 
     OpenFB.api({path:'/me'}).then(function(data){
       //console.log('ALL THE DATA!  - ', data);
@@ -15,18 +13,20 @@
       //console.log(data);
     });
 
+    /*
     OpenFB.api({path:'/me/picture?redirect=0&type=large'}).then(function(data){
       console.log('/me/picture', data);
     });
+    */
 
     //get current users friends
     OpenFB.api({path:'/me/friends'}).then(function(data){
-      console.log('/me/friends', data);
+      //console.log('/me/friends', data);
       //$scope.friends = data.data;
-      console.log('RAW FRIENDS ARRAY', data.data.data);
+      //console.log('RAW FRIENDS ARRAY', data.data.data);
       var rawFriends = data.data.data;
       $scope.cards = friendPictures(rawFriends);
-      console.log('PROCESSED FRIENDS ARRAY', $scope.cards);
+      //console.log('PROCESSED FRIENDS ARRAY', $scope.cards);
       //$scope.digest();
     });
 

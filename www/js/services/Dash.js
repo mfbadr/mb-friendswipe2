@@ -10,8 +10,11 @@ angular.module('mb-friendswipe')
   }
 
   //call to see swiped users here
+  function swipe(swipeObj){
+    return $http.post(origin + '/newswipe', swipeObj);
+  }
 
-  return {register: register};
+  return {register: register, swipe:swipe};
 
 }]);
 
