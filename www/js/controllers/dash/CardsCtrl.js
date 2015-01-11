@@ -1,20 +1,34 @@
 (function(){
   'use strict';
   angular.module('mb-friendswipe')
-  .controller('CardsCtrl', ['$scope', 'TDCardDelegate', 'OpenFB', '$rootScope', function($scope, TDCardDelegate, OpenFB, $rootScope){
+  .controller('CardsCtrl', ['$scope', 'TDCardDelegate', 'OpenFB', '$rootScope', 'Dash', function($scope, TDCardDelegate, OpenFB, $rootScope, Dash){
 
     OpenFB.api({path:'/me'}).then(function(data){
       $rootScope.myFacebookId = data.data.id;
+
+      Dash.getSwipes($rootScope.myFacebookId).then(function(response){
+        console.log('RESPONSE FROM /GETSWIPES', response);
+        var swiped = response.data;
+        //
+        OpenFB.api({path:'/me/friends'}).then(function(data){
+          var rawFriends = data.data.data;
+          console.log('rawFriends :', rawFriends);
+          //cross rawfriends with swiped here, then pass to friendPictures
+          swiped.forEach(function(target){
+            rawFriends = _.reject(rawFriends, function(friend){
+              return friend.id === target.target;
+            });
+          });
+          $scope.cards = friendPictures(rawFriends);
+        });
+        //
+      });
+
     }, function(data){
       console.log('something went wrong getting user info', data);
     });
 
-
     //get current users friends
-    OpenFB.api({path:'/me/friends'}).then(function(data){
-      var rawFriends = data.data.data;
-      $scope.cards = friendPictures(rawFriends);
-    });
 
     $scope.cardDestroyed = function(index){
       $scope.cards.splice(index, 1);

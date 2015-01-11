@@ -2,5 +2,5 @@
   'use strict';
 
   angular.module('mb-friendswipe')
-  .value('origin', 'https://uwmroreysi.localtunnel.me');
+  .value('origin', 'https://gdtstjbeev.localtunnel.me');
 })();
