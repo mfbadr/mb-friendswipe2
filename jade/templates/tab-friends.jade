@@ -3,6 +3,7 @@ html
     ion-view(title='Matches')
       ion-content
         ion-list
-          ion-item(ng-repeat='match in matches', type='item-text-wrap', href='#/tab/friend/{{match.sender_id}}')
-            | {{match.sender_name}}
-            | - Matched on: {{match.time | date : format : 'mediumTime'}}
+          ion-item(class='item-thumbnail-left', ng-repeat='match in matches', type='item-text-wrap', ui-sref='tab.friend-detail({friendId : match.sender_id})' )
+            img(ng-src='{{match.url}}')
+            h2 {{match.sender_name}}
+            p Swiped you on {{match.time | date : format : 'mediumTime'}}

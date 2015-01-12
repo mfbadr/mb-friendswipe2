@@ -4,9 +4,9 @@
     <ion-view title="Matches">
       <ion-content>
         <ion-list>
-          <ion-item ng-repeat="match in matches" type="item-text-wrap" href="#/tab/friend/{{match.sender_id}}">
-            {{match.sender_name}}
-            - Matched on: {{match.time | date : format : 'mediumTime'}}
+          <ion-item ng-repeat="match in matches" type="item-text-wrap" ui-sref="tab.friend-detail({friendId : match.sender_id})" class="item-thumbnail-left"><img ng-src="{{match.url}}">
+            <h2>{{match.sender_name}}</h2>
+            <p>Swiped you on {{match.time | date : format : 'mediumTime'}}</p>
           </ion-item>
         </ion-list>
       </ion-content>
