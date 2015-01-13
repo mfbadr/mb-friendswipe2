@@ -11,17 +11,14 @@ ion-view(title='Dashboard')
         h5 Looks like you swiped on all your friends! Invite some more to join the fun!
       td-card(ng-repeat='card in cards', on-destroy='cardDestroyed($index)', on-card-swipe='cardSwiped($index)', ng-controller='CardCtrl', on-swipe-left='cardSwipedLeft(card.id)', on-swipe-right='cardSwipedRight(card.id)')
         div
-          .card
             h2 {{card.name}}
             //i.ion-person(style='font-size: 240px')
             //h4 {{card.title}}
             .image
               img(ng-src='{{card.url}}')
             .card-footer
-            .yes-text(ng-style='leftTextOpacity') Like
-            .no-text(ng-style='rightTextOpacity') Nope
+            //-.yes-text(ng-style='leftTextOpacity') Like
+            //-.no-text(ng-style='rightTextOpacity') No
 
 
 
-                //-button.button.button-clear.button-positive(ng-click='goAway()') Answer
-                //-button.button.button-clear.button-positive(ng-click='goAway()') Decline

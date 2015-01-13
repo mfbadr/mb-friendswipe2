@@ -9,7 +9,11 @@
     -->
     <ion-view title="{{friend.name}}">
       <ion-content has-header="true" padding="true">
-        <h3>{{friend.name}} wants to reconnect!</h3><img ng-src="{{friendPicture}}">
+        <div class="list card">
+          <h2 class="item">{{friend.name}} wants to reconnect!</h2>
+          <div class="item item-image"><img ng-src="{{friendPicture}}"></div>
+          <h3 class="item">Why don't you send them a message?</h3>
+        </div>
       </ion-content>
     </ion-view>
   </body>
