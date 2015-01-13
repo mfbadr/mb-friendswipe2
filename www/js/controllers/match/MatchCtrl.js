@@ -6,6 +6,7 @@
   angular.module('mb-friendswipe')
   .controller('MatchCtrl', ['$scope', 'Match', '$rootScope', 'OpenFB', function($scope, Match, $rootScope, OpenFB){
 
+    console.log('matches is ', $scope.matches);
     Match.matches($rootScope.myFacebookId).then(function(response){
       console.log('response from matches', response);
       $scope.matches = friendPictures(response.data);

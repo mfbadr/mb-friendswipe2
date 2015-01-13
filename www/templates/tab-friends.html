@@ -3,6 +3,8 @@
   <body>
     <ion-view title="Matches">
       <ion-content>
+        <h3 ng-show="matches === undefined">Getting your matches...</h3>
+        <h3 ng-show="matches.length === 0">No matches yet :( Keep swiping!</h3>
         <ion-list>
           <ion-item ng-repeat="match in matches" type="item-text-wrap" ui-sref="tab.friend-detail({friendId : match.sender_id})" class="item-thumbnail-left"><img ng-src="{{match.url}}">
             <h2>{{match.sender_name}}</h2>
